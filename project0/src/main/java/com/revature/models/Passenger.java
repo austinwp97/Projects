@@ -23,11 +23,13 @@ public class Passenger {
         this.first_name = first_name;
     }
 
-    public Passenger(String last_name, String first_name, String seatClass, int flight_id_fk) {
+    public Passenger(Flight flight,String last_name, String first_name, String seatClass, int flight_id_fk, int passenger_id) {
         this.last_name = last_name;
         this.first_name = first_name;
         this.seatClass = seatClass;
         this.flight_id_fk = flight_id_fk;
+        this.flight = flight;
+        this.passenger_id = passenger_id;
     }
 
     public String getFirst_name() {
@@ -80,13 +82,13 @@ public class Passenger {
 
     @Override
     public String toString() {
-        return "Passenger{" +
-                "first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
-                ", passenger_id=" + passenger_id +
-                ", seatClass='" + seatClass + '\'' +
-                ", flight=" + flight +
-                ", flight_id_fk=" + flight_id_fk +
+        return "Passenger{\n" +
+                "first_name='" + first_name + "',\n" +
+                "last_name='" + last_name + "',\n" +
+                "passenger_id=" + passenger_id + "',\n" +
+                "seatClass='" + seatClass + "',\n" +
+                "flight=\n" + flight + "\n" +
+                "flight_id_fk=" + flight_id_fk +
                 '}';
     }
 }

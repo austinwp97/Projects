@@ -1,5 +1,6 @@
 package com.revature.models;
-import java.time.*;
+import java.sql.Timestamp;
+
 
 public class Flight {
 
@@ -11,15 +12,15 @@ public class Flight {
 
     private boolean delayed;
 
-    private LocalDateTime departure_time;
+    private Timestamp departure_time;
 
-    private LocalDateTime arrival_time;
+    private Timestamp arrival_time;
 
     public Flight(){
 
     }
 
-    public Flight(int flight_number, String origin, String destination, boolean delayed, LocalDateTime departure_time, LocalDateTime arrival_time) {
+    public Flight(int flight_number, String origin, String destination, boolean delayed, Timestamp departure_time, Timestamp arrival_time) {
         this.flight_number = flight_number;
         this.origin = origin;
         this.destination = destination;
@@ -60,19 +61,41 @@ public class Flight {
         this.delayed = delayed;
     }
 
-    public LocalDateTime getDepartureTime() {
+    public Timestamp getDepartureTime() {
         return departure_time;
     }
 
-    public void setDepartureTime(LocalDateTime departureTime) {
-        this.departure_time = departure_time;
+    public void setDepartureTime(String departure_time) {
+        try {
+            this.departure_time = Timestamp.valueOf(departure_time);
+        }catch(Exception e){
+            e.printStackTrace();
+            this.departure_time = null;
+        }
     }
 
-    public LocalDateTime getArrival_time() {
+    public Timestamp getArrival_time() {
         return arrival_time;
     }
 
-    public void setArrival_time(LocalDateTime arrival_time) {
-        this.arrival_time = arrival_time;
+    public void setArrival_time(String arrival_time) {
+        try {
+            this.arrival_time = Timestamp.valueOf(arrival_time);
+        }catch(Exception e){
+                e.printStackTrace();
+                this.arrival_time = null;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "\nFlight{" +
+                "\n flight_number=" + flight_number +
+                "\n origin='" + origin + '\'' +
+                "\n destination='" + destination + '\'' +
+                "\n delayed=" + delayed +
+                "\n departure_time=" + departure_time.toLocalDateTime() +
+                "\n arrival_time=" + arrival_time.toLocalDateTime() +
+                "}";
     }
 }
