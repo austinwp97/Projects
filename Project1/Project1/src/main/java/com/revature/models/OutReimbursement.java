@@ -1,59 +1,30 @@
 package com.revature.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
-import org.springframework.stereotype.Component;
+public class OutReimbursement {
 
-import java.util.Optional;
-
-@Component
-@Entity
-@Table(name = "reimbursements")
-public class Reimbursement {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int reimbursementId;
-
-    @Column(nullable = false)
     private String description;
-
-    @Column(nullable = false)
     private double amount;
+    private String status;
+    private int userId;
 
-    @Column(nullable = false)
-    private String status = "pending";
-
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "userId")
-    private User user;
-
-    public Reimbursement() {
+    public OutReimbursement() {
     }
 
-    public Reimbursement(int reimbursementId, String description, double amount, String status, User user) {
+    public OutReimbursement(int reimbursementId, String description, double amount, String status, int userId) {
         this.reimbursementId = reimbursementId;
         this.description = description;
         this.amount = amount;
         this.status = status;
-        this.user = user;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setReimbursementId(int reimbursementId) {
-        this.reimbursementId = reimbursementId;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
+        this.userId = userId;
     }
 
     public int getReimbursementId() {
         return reimbursementId;
+    }
+
+    public void setReimbursementId(int reimbursementId) {
+        this.reimbursementId = reimbursementId;
     }
 
     public String getDescription() {
@@ -80,13 +51,22 @@ public class Reimbursement {
         this.status = status;
     }
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
     @Override
     public String toString() {
-        return "Reimbursement{" +
+        return "OutReimbursement{" +
                 "reimbursementId=" + reimbursementId +
                 ", description='" + description + '\'' +
                 ", amount=" + amount +
                 ", status='" + status + '\'' +
+                ", userId=" + userId +
                 '}';
     }
 }

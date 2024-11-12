@@ -28,8 +28,31 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false)
+    private String role = "user";
+
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Reimbursement> reimbursements;
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public List<Reimbursement> getReimbursements() {
+        return reimbursements;
+    }
+
+    public void setReimbursements(List<Reimbursement> reimbursements) {
+        this.reimbursements = reimbursements;
+    }
 
     public User() {
     }
@@ -87,6 +110,8 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                ", reimbursements=" + reimbursements +
                 '}';
     }
 }

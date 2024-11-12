@@ -1,6 +1,6 @@
 package com.revature.models;
 
-public class Passenger {
+public class Passenger extends Object{
 
     private String first_name;
     private String last_name;

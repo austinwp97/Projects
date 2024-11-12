@@ -1,0 +1,10 @@
+#homePage{
+    background-color: #4A628A;
+    border-radius: 10px;
+    height:25vh;
+    align-items: center;
+}
+#MainHeader{
+    font-weight:700;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
