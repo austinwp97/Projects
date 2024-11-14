@@ -34,7 +34,7 @@ export const ReimbursementContainer:React.FC = () => {
     const getReimbursementsByUserId = async () => {
 
        
-        const response = await axios.get("http://localhost:7777/reimbursements/" + store.loggedInUser.userId)
+        const response = await axios.get("http://18.223.168.42:7777/reimbursements/" + store.loggedInUser.userId)
         .then(
 
             (response) => {

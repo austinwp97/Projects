@@ -16,7 +16,7 @@ export const UserReimbursements:React.FC<any> = () => {
 
     const getReimbursements = async () =>
     {
-        const response = await axios.get("http://localhost:7777/reimbursements")
+        const response = await axios.get("http://18.223.168.42:7777/reimbursements")
         .then(
             (response) => {
                 setReimbursements(response.data)

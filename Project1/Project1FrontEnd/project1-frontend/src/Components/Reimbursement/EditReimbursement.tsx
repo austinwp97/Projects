@@ -42,7 +42,7 @@ export const EditReimbursement: React.FC<{
         if (reimbursement) {
             try {
                 // Send PUT request to update the reimbursement
-                const response = await axios.put(`http://localhost:7777/reimbursements`, formData);
+                const response = await axios.put(`http://18.223.168.42:7777/reimbursements`, formData);
                 console.log(response.data);
 
                 // Update the local state with the updated reimbursement

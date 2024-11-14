@@ -22,7 +22,7 @@ export const User:React.FC = () => {
 
     const getReimbursements = async () => {
 
-        const response = await axios.get("http://localhost:7777/users")
+        const response = await axios.get("http://18.223.168.42:7777/users")
         .then(
 
             (response) => {

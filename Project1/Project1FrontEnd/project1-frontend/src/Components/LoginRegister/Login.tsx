@@ -29,7 +29,7 @@ export const Login:React.FC = () => {
 
     const login = async () => {
 
-        const response = await axios.post("http://localhost:7777/auth",loginCreds)
+        const response = await axios.post("http://18.223.168.42:7777/auth",loginCreds)
         .then(
 
             

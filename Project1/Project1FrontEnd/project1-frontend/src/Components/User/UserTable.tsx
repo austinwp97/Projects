@@ -14,7 +14,7 @@ export const UserTable:React.FC<{users: any[],setUsers: (users: any[]) => void}>
         if (window.confirm("Are you sure you want to delete this user?")) { 
             console.log(`User with ID ${userId} deleted.`);
             
-            const response = await axios.delete("http://localhost:7777/users/" + userId)
+            const response = await axios.delete("http://18.223.168.42:7777/users/" + userId)
             .then(() => {
                 setUsers(users.filter(user => user.userId !== userId))
             })
@@ -23,7 +23,7 @@ export const UserTable:React.FC<{users: any[],setUsers: (users: any[]) => void}>
 
     const handlePromote = async (userId:number) =>
     {
-        const response = await axios.patch("http://localhost:7777/users/" + userId, {role:"admin"})
+        const response = await axios.patch("http://18.223.168.42:7777/users/" + userId, {role:"admin"})
         .then((response) =>{
             setUsers(users.map(user => user.userId === userId ? {...user,role:"admin"}:user))
         }

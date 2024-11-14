@@ -26,7 +26,7 @@ export const Register:React.FC = () =>{
     const register = async () => {
 
 
-         const response = await axios.post('http://localhost:7777/users', user)
+         const response = await axios.post('http://18.223.168.42:7777/users', user)
         .then(()=>{
             onNavigate("/")
         })

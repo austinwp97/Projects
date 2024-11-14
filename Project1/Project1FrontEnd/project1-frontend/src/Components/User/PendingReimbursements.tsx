@@ -18,7 +18,7 @@ export const PendingReimbursements:React.FC = () => {
 
     const getReimbursements = async () =>
     {
-        const response = await axios.get("http://localhost:7777/reimbursements/status/" + "pending")
+        const response = await axios.get("http://18.223.168.42:7777/reimbursements/status/" + "pending")
         .then(
             (response) => {
                 setReimbursements(response.data)
@@ -31,14 +31,14 @@ export const PendingReimbursements:React.FC = () => {
 
     const approveReimb = async (reimbId: any) => { 
 
-        const response = await axios.patch(`http://localhost:7777/reimbursements/${reimbId}`, {status:"approved"}) 
+        const response = await axios.patch(`http://18.223.168.42:7777/reimbursements/${reimbId}`, {status:"approved"}) 
         .catch((error) => { 
             console.error("Error approving reimbursement:", error); 
         })
     }
     const denyReimb = async (reimbId:any) => { 
             
-            const response = await axios.patch(`http://localhost:7777/reimbursements/${reimbId}`, {status:"denied"})
+            const response = await axios.patch(`http://18.223.168.42:7777/reimbursements/${reimbId}`, {status:"denied"})
             .catch((error) => { 
                 console.error("Error denying reimbursement:", error); 
             })

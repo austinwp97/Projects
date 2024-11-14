@@ -25,7 +25,7 @@ export const ReimbursementForm:React.FC<{reimbursements: any[],setReimbursements
 
     const addReimbursementsById = async () => {
         try {
-        const response = await axios.post("http://localhost:7777/reimbursements",reimbursement)
+        const response = await axios.post("http://18.223.168.42:7777/reimbursements",reimbursement)
         setReimbursements([...reimbursements,response.data]);
         setShowForm(false);
         
